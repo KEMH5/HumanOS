@@ -28,9 +28,15 @@ public class Formation {
 
     private String domaine;
 
-    private LocalDate duree;
+    private Float duree;
 
     private Float cout;
+
+    private LocalDate dateDebut;
+
+    private LocalDate dateFin;
+
+    private StatutFormation statut;
 
     @OneToMany(mappedBy = "formation")
     private List<Departement> departements ;
