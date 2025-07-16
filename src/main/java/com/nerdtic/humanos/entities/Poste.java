@@ -29,5 +29,5 @@ public class Poste {
             fetch = FetchType.EAGER,
             mappedBy = "poste"
     )
-    private List<Poste> postes;
+    private List<Contrat> contrats;
 }

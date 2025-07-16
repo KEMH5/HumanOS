@@ -15,11 +15,17 @@ public class Departement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Integer id;
 
     private String nomDepartement;
 
-    @ManyToOne
-    @JoinColumn(name = "formation_id")
+
+    @ManyToOne(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.DETACH
+    )
+    @JoinColumn(
+            name = "formation_id"
+    )
     private Formation formation;
 }

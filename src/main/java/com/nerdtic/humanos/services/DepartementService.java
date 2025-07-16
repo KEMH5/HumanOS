@@ -1,4 +1,8 @@
 package com.nerdtic.humanos.services;
 
-public class DepartementService {
+import com.nerdtic.humanos.entities.Departement;
+
+public interface DepartementService {
+
+    Departement createDepartement(Departement departement);
 }

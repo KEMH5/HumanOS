@@ -22,11 +22,4 @@ public class TypeContrat {
 
     private String description;
 
-    @OneToMany(
-            fetch = FetchType.EAGER,
-            mappedBy = "typeContrat"
-    )
-    private List<Contrat> contrats;
-
-
 }
