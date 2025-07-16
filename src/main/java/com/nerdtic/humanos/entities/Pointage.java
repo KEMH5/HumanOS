@@ -17,7 +17,7 @@ public class Pointage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Integer id;
 
     private LocalDateTime datePointage;
 

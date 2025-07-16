@@ -15,7 +15,7 @@ public class Departement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Integer id;
 
     private String nomDepartement;
 

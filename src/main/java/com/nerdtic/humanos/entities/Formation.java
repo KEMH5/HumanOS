@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,10 +17,8 @@ import java.util.List;
 @Entity
 public class Formation {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String titre;
 
@@ -33,8 +32,6 @@ public class Formation {
 
     private Float cout;
 
-    @OneToMany(
-            mappedBy = "formation"
-    )
+    @OneToMany(mappedBy = "formation")
     private List<Departement> departements ;
 }
