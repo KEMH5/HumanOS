@@ -8,25 +8,26 @@ import lombok.Setter;
 
 import java.util.List;
 
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class TypeContrat {
+public class Poste {
+    @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE
     )
-    @Id
     private Integer id;
+
+    private String title;
 
     private String description;
 
     @OneToMany(
             fetch = FetchType.EAGER,
-            mappedBy = "typeContrat"
+            mappedBy = "poste"
     )
-    private List<Contrat> contrats;
-
-
+    private List<Poste> postes;
 }

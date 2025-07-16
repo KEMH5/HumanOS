@@ -31,8 +31,17 @@ public class Contrat {
             cascade = CascadeType.DETACH
     )
     @JoinColumn(
-
+        name = "type_contrat_id"
     )
     private TypeContrat typeContrat;
+
+    @ManyToOne(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.DETACH
+    )
+    @JoinColumn(
+            name = "poste_id"
+    )
+    private Poste poste;
 
 }
