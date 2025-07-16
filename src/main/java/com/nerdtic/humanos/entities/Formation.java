@@ -32,5 +32,5 @@ public class Formation {
     private Float cout;
 
     @OneToMany(mappedBy = "formation")
-    private List<Formation> formations;
+    private List<Departement> departements ;
 }
