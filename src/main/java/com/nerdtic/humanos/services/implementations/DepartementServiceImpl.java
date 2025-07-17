@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class DepartementServiceImpl implements DepartementService {
     @Override
-    public Departement createDepartement(Departement departement) {
+    public Departement createDepartement(
+            Departement departement
+    ) {
+
         return null;
     }
 }

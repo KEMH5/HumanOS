@@ -30,4 +30,5 @@ public class Poste {
             mappedBy = "poste"
     )
     private List<Contrat> contrats;
+
 }

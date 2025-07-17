@@ -28,4 +28,6 @@ public class Departement {
             name = "formation_id"
     )
     private Formation formation;
+
+
 }

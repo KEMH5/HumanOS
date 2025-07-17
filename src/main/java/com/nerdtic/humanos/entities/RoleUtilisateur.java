@@ -1,13 +1,13 @@
 package com.nerdtic.humanos.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.nerdtic.humanos.security.entities.User;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,4 +24,10 @@ public class RoleUtilisateur {
     private String title;
 
     private String description;
+
+    @ManyToMany(
+            fetch = FetchType.EAGER,
+            mappedBy = "userRoles"
+    )
+    private List<User> users;
 }

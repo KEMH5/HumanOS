@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.entities;
 
+import com.nerdtic.humanos.security.entities.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,5 +44,14 @@ public class Contrat {
             name = "poste_id"
     )
     private Poste poste;
+
+    @ManyToOne(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.DETACH
+    )
+    @JoinColumn(
+            name = "user_id"
+    )
+    private User user;
 
 }

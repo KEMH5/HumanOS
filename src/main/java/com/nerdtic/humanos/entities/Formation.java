@@ -17,7 +17,9 @@ import java.util.Set;
 @Entity
 public class Formation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
     private Integer id;
 
     private String titre;
@@ -36,8 +38,14 @@ public class Formation {
 
     private LocalDate dateFin;
 
+    @Enumerated(EnumType.STRING)
+    @Column(
+            name = "statutFormation"
+    )
     private StatutFormation statut;
 
     @OneToMany(mappedBy = "formation")
     private List<Departement> departements ;
+
+
 }

@@ -1,10 +1,8 @@
 package com.nerdtic.humanos.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.nerdtic.humanos.security.entities.User;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,4 +37,13 @@ public class Paie {
     private Float tauxHoraire;
 
     private Float montantHeureSup;
+
+    @ManyToOne(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.DETACH
+    )
+    @JoinColumn(
+            name = "user_id"
+    )
+    private User user;
 }

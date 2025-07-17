@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.entities;
 
 public enum StatutPointage {
-    in,out
+    STATUT_IN,
+    STATUT_OUT
 }

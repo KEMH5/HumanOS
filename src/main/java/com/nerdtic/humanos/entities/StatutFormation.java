@@ -1,7 +1,8 @@
 package com.nerdtic.humanos.entities;
 
 public enum StatutFormation {
-    nonDebutee,
-    debutee,
-    terminer
+    NON_DEBUTEE,
+    DEBUTEE,
+    EN_COURS,
+    TERMINER
 }
