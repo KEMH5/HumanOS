@@ -64,7 +64,7 @@ public class User {
                     name = "abscence_id"
             )
     )
-    private List<Abscence> abscences;
+    private List<Abscence> absences;
 
     @ManyToOne(
             fetch = FetchType.EAGER,

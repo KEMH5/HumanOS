@@ -20,6 +20,8 @@ public class TypeContrat {
     @Id
     private Integer id;
 
+    private String name;
+
     private String description;
 
 }

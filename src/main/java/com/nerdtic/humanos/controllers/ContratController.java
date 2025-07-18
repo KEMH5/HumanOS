@@ -25,7 +25,7 @@ public class ContratController {
 
     @GetMapping("/contrats")
     public List<Contrat> getAllContrats() {
-        return this.contratService.getAllContrats();
+        return contratService.getAllContrats();
     }
 
     @GetMapping("/contrats/{contrat-id}")
