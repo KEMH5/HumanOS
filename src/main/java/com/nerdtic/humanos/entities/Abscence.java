@@ -37,4 +37,6 @@ public class Abscence {
             mappedBy = "abscences"
     )
     private List<User> users;
+
+
 }
