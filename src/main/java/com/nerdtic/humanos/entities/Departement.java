@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,14 +22,15 @@ public class Departement {
     private String nomDepartement;
 
 
-    @ManyToOne(
+    @ManyToMany(
             fetch = FetchType.EAGER,
             cascade = CascadeType.DETACH
     )
-    @JoinColumn(
-            name = "formation_id"
+    @JoinTable(
+            name = "departement_formation",
+            joinColumns = @JoinColumn(name = "departement_id"),
+            inverseJoinColumns = @JoinColumn(name = "formation_id")
     )
-    private Formation formation;
-
+    private List<Formation> formations;
 
 }

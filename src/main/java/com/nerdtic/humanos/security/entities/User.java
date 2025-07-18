@@ -75,7 +75,4 @@ public class User {
     )
     private Departement departement;
 
-
-
-
 }

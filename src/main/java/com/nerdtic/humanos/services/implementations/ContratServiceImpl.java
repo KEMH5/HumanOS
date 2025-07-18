@@ -3,9 +3,11 @@ package com.nerdtic.humanos.services.implementations;
 import com.nerdtic.humanos.entities.Contrat;
 import com.nerdtic.humanos.repositories.ContratRepository;
 import com.nerdtic.humanos.services.ContratService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ContratServiceImpl implements ContratService {
 
     private ContratRepository contratRepo;

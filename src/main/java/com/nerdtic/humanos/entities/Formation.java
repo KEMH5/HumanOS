@@ -44,8 +44,7 @@ public class Formation {
     )
     private StatutFormation statut;
 
-    @OneToMany(mappedBy = "formation")
+    @ManyToMany(mappedBy = "formations")
     private List<Departement> departements ;
-
 
 }
