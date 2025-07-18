@@ -29,7 +29,7 @@ public class DepartementServiceImpl implements DepartementService {
         var departement = new Departement();
 
         departement.setNomDepartement(createRequest.getNomDepartement());
-        departement.setFormation(formation);
+        departement.getFormations().add(formation);
 
         return departementRepository.save(departement);
     }
