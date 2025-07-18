@@ -1,7 +1,6 @@
-package com.nerdtic.humanos.security.service;
+package com.nerdtic.humanos.security.services;
 
 import com.nerdtic.humanos.security.entities.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

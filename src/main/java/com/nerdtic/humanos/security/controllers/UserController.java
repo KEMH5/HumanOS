@@ -1,7 +1,7 @@
-package com.nerdtic.humanos.security.Controller;
+package com.nerdtic.humanos.security.controllers;
 
 import com.nerdtic.humanos.security.entities.User;
-import com.nerdtic.humanos.security.service.UserService;
+import com.nerdtic.humanos.security.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
