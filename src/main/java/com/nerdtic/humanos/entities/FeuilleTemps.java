@@ -17,10 +17,8 @@ import java.time.LocalDate;
 @Entity
 public class FeuilleTemps {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE
-    )
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
     private LocalDate heureDebutProgramme;
 

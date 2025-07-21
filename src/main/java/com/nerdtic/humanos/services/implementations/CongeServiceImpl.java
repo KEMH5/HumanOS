@@ -25,35 +25,33 @@ public class CongeServiceImpl implements CongeService {
     @Override
     public Conge createConge(Conge conge) {
 
-        if(congeRepository.findByTypeConge(conge.getTypeConge()).isPresent()){
-            throw new CongeAlreadyExistsException("Conge already exists");
+        var congeExcisting = congeRepository.findById(conge.getId());
+
+        if(congeExcisting.isPresent()) {
+            throw new CongeAlreadyExistsException("Conge already exits");
         }
+
+        else {
+            return congeRepository.save(conge);
+        }
+    }
+
+    @Override
+    public Conge updateConge(Conge congeDetails, Long id) {
+        var conge = congeRepository.findById(id)
+                .orElseThrow(() -> new CongeNotFoundException("Conge not found"));
+
+        conge.setTypeConge(congeDetails.getTypeConge());
+        conge.setDescription(congeDetails.getDescription());
+        conge.setStartDate(congeDetails.getStartDate());
+        conge.setEndDate(congeDetails.getEndDate());
+        conge.setStatus(congeDetails.getStatus());
+
         return congeRepository.save(conge);
     }
 
     @Override
-    public Conge updateConge(Conge congeDetails, int id) {
-
-        Optional<Conge> conge = congeRepository.findById(id);
-
-        if(conge.isPresent()){
-            Conge updatedConge = conge.get();
-
-            updatedConge.setTypeConge(congeDetails.getTypeConge());
-            updatedConge.setDescription(congeDetails.getDescription());
-            updatedConge.setStatus(congeDetails.getStatus());
-            updatedConge.setEndDate(congeDetails.getEndDate());
-            updatedConge.setStartDate(congeDetails.getStartDate());
-            updatedConge.setEndDate(congeDetails.getEndDate());
-            updatedConge.setUser(congeDetails.getUser());
-
-            return congeRepository.save(updatedConge);
-        }
-        throw new CongeNotFoundException("Conge not found");
-    }
-
-    @Override
-    public void deleteConge(int id) {
+    public void deleteConge(Long id) {
 
         Optional<Conge> conge = congeRepository.findById(id);
 
@@ -67,7 +65,7 @@ public class CongeServiceImpl implements CongeService {
     }
 
     @Override
-    public Conge getConge(int id) {
+    public Conge getConge(Long id) {
 
         Optional<Conge> conge = congeRepository.findById(id);
 

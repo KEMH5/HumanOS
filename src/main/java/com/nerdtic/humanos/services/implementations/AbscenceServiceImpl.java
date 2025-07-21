@@ -37,6 +37,7 @@ public class AbscenceServiceImpl implements AbscenceService {
         abscence.getUsers().add(user);
 
         return abscenceRepository.save(abscence);
+
     }
 
     @Override

@@ -15,25 +15,14 @@ public class Pointage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Long id;
 
     private LocalDateTime datePointage;
 
     @Enumerated
-    @Column(
-            name = "statutPointage"
-    )
+    @Column(name = "statutPointage")
     private StatutPointage statut;
 
     private LocalDateTime heurePointage;
-
-    @ManyToOne(
-            fetch = FetchType.EAGER,
-            cascade = CascadeType.DETACH
-    )
-    @JoinColumn(
-            name = "user_id"
-    )
-    private User user;
 
 }

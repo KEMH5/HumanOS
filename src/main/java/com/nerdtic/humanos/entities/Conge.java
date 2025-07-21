@@ -23,21 +23,12 @@ public class Conge {
 
     private String typeConge;
 
-    private Boolean statut;
+    private Boolean status;
 
     private LocalDate startDate;
 
     private LocalDate endDate;
 
     private String description;
-
-    @ManyToOne(
-            fetch = FetchType.EAGER,
-            cascade = CascadeType.DETACH
-    )
-    @JoinColumn(
-            name = "user_id"
-    )
-    private User user;
 
 }

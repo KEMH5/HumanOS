@@ -1,6 +1,7 @@
 package com.nerdtic.humanos.controllers;
 
 
+import com.nerdtic.humanos.dto.RoleUtilisateurCreateRequest;
 import com.nerdtic.humanos.entities.RoleUtilisateur;
 import com.nerdtic.humanos.services.RoleUtilisateurService;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class RoleUtilisateurController {
     @PostMapping("/rolesUtilisateur")
     public RoleUtilisateur createRoleUtilisateur(
             @RequestBody
-            RoleUtilisateur roleUtilisateur
+            RoleUtilisateurCreateRequest roleUtilisateur
     ){
         return roleUtilisateurService.createRoleUtilisateur(roleUtilisateur);
     }
@@ -33,7 +34,7 @@ public class RoleUtilisateurController {
     @GetMapping("/rolesUtilisateur/{role-id}")
     public RoleUtilisateur getRoleUtilisateurById(
             @PathVariable("role-id")
-            Integer roleId
+            Long roleId
     ){
         return roleUtilisateurService.getRoleUtilisateur(roleId);
     }
@@ -41,8 +42,9 @@ public class RoleUtilisateurController {
     @DeleteMapping("/rolesUtilisateur/{role-id}")
     public void deleteRoleUtilisateurById(
             @PathVariable("role-id")
-            Integer roleId
+            Long roleId
     ){
         roleUtilisateurService.deleteRoleUtilisateur(roleId);
     }
+
 }

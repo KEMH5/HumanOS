@@ -1,18 +1,19 @@
 package com.nerdtic.humanos.security.services;
 
+import com.nerdtic.humanos.security.dto.UserCreateRequest;
 import com.nerdtic.humanos.security.entities.User;
 
 import java.util.List;
 
 
 public interface UserService {
-    User createUser(User user);
+    User createUser(UserCreateRequest createRequest);
 
     List<User> getAllUsers();
 
-    User getUser(Integer id);
+    User getUser(Long id);
 
-    void deleteUser(Integer id);
+    void deleteUser(Long id);
 
     List<User> getAllUserByFirstName(String name);
 

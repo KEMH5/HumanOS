@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.controllers;
 
+import com.nerdtic.humanos.dto.PaieCreateRequest;
 import com.nerdtic.humanos.entities.Paie;
 import com.nerdtic.humanos.services.PaieService;
 import com.nerdtic.humanos.services.implementations.PaieServiceImpl;
@@ -20,7 +21,7 @@ public class PaieController {
     @PostMapping("/paies")
     public Paie create(
             @RequestBody
-            Paie paie
+            PaieCreateRequest paie
     ){
         return paieService.createPaie(paie);
     }
@@ -33,7 +34,7 @@ public class PaieController {
     @GetMapping("/paies/{paie-id}")
     public Paie getPaie(
             @PathVariable("paie-id")
-            Integer paieId
+            Long paieId
     ) {
         return paieService.getPaie(paieId);
     }
@@ -41,7 +42,7 @@ public class PaieController {
     @DeleteMapping("/paies/{paie-id}")
     public void deletePaie(
             @PathVariable("paie-id")
-            Integer paieId
+            Long paieId
     ){
         paieService.deletePaie(paieId);
     }

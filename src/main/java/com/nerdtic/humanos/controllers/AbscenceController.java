@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.controllers;
 
+import com.nerdtic.humanos.dto.AbscenceCreateRequest;
 import com.nerdtic.humanos.entities.Abscence;
 import com.nerdtic.humanos.services.AbscenceService;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class AbscenceController {
     @PostMapping("/absences")
     public Abscence createAbsence(
             @RequestBody
-            Abscence abscence
+            AbscenceCreateRequest abscence
     ) {
         return abscenceService.createAbscence(abscence);
     }
@@ -31,19 +32,19 @@ public class AbscenceController {
         return abscenceService.findAllAbscences();
     }
 
-    @GetMapping("absences/{absence-id}")
-    public Abscence getAbsence(
-            @PathVariable("absence-id")
-            Integer absenceId
-    ) {
-        return abscenceService.findAbscence(absenceId);
-    }
+//    @GetMapping("absences/{absence-id}")
+//    public Abscence getAbsence(
+//            @PathVariable("absence-id")
+//            Long absenceId
+//    ) {
+//        return abscenceService.findAbscence(absenceId);
+//    }
 
     @DeleteMapping("absences/{absence-id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteAbsence(
             @PathVariable("absence-id")
-            Integer absenceId
+            Long absenceId
     ){
         abscenceService.deleteAbscence(absenceId);
     }

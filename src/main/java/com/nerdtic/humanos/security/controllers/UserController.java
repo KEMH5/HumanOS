@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.security.controllers;
 
+import com.nerdtic.humanos.security.dto.UserCreateRequest;
 import com.nerdtic.humanos.security.entities.User;
 import com.nerdtic.humanos.security.services.UserService;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class UserController {
     @PostMapping("/users")
     public User createUser(
             @RequestBody
-            User user
+            UserCreateRequest user
     ) {
         return userService.createUser(user);
     }
@@ -31,7 +32,7 @@ public class UserController {
     @GetMapping("/users/{user-id}")
     public User getUserById(
             @PathVariable("user-id")
-            Integer userId
+            Long userId
     ){
         return userService.getUser(userId);
     }
@@ -47,7 +48,7 @@ public class UserController {
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public void deleteUser(
-            Integer id
+            Long id
     ){
         userService.deleteUser(id);
     }

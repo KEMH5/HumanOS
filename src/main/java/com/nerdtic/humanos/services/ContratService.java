@@ -8,9 +8,9 @@ import java.util.List;
 public interface ContratService {
     Contrat saveContrat(ContratCreateRequest createRequest);
 
-    Contrat getContrat(Integer id);
+    Contrat getContrat(Long id);
 
     List<Contrat> getAllContrats();
 
-    void deleteContrat(Integer id);
+    void deleteContrat(Long id);
 }

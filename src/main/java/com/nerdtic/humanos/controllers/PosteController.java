@@ -32,7 +32,7 @@ public class PosteController {
     @GetMapping("/postes/{poste-id}")
     public Poste getPoste(
             @PathVariable("poste-id")
-            Integer posteId
+            Long posteId
     ) {
         return posteService.getPoste(posteId);
     }

@@ -34,7 +34,7 @@ public class Abscence {
 
     @ManyToMany(
             fetch = FetchType.EAGER,
-            mappedBy = "abscences"
+            mappedBy = "absences"
     )
     private List<User> users;
 

@@ -56,7 +56,7 @@ public class ContratServiceImpl implements ContratService {
 
     @Override
     public Contrat getContrat(
-            Integer id
+            Long id
     ) {
         return contratRepo.findById(id)
                 .orElse(null);
@@ -68,7 +68,7 @@ public class ContratServiceImpl implements ContratService {
     }
 
     @Override
-    public void deleteContrat(Integer id) {
+    public void deleteContrat(Long id) {
          contratRepo.deleteById(id);
     }
 

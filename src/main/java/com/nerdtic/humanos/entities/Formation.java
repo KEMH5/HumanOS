@@ -17,9 +17,7 @@ import java.util.Set;
 @Entity
 public class Formation {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String titre;

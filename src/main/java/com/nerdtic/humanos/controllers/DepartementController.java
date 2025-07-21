@@ -28,18 +28,18 @@ public class DepartementController {
     }
 
     @PutMapping("/update/{id}")
-    public Departement updateDepartement(@PathVariable int id, @RequestBody Departement departement){
+    public Departement updateDepartement(@PathVariable Long id, @RequestBody DepartementCreateRequest departement){
         return departementService.updateDepartement(departement, id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteDepartement(@PathVariable int id){
+    public void deleteDepartement(@PathVariable Long id){
         departementService.deleteDepartement(id);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Departement> getDepartementById(@PathVariable int id){
-        return new ResponseEntity<>(departementService.getDepartementById(id), HttpStatus.OK);
+    public ResponseEntity<Departement> getDepartementById(@PathVariable Long id){
+        return new ResponseEntity<>(departementService.getDepartement(id), HttpStatus.OK);
     }
 
 }

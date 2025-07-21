@@ -18,4 +18,5 @@ public class ContratCreateRequest {
     private Long idPoste;
 
     private Long idUser;
+
 }

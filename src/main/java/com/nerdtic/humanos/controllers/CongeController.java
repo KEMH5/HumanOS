@@ -27,17 +27,17 @@ public class CongeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Conge>  updateConge(@PathVariable int id, @RequestBody Conge conge) {
+    public ResponseEntity<Conge>  updateConge(@PathVariable Long id, @RequestBody Conge conge) {
         return new ResponseEntity<>(congeService.updateConge(conge, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteConge(@PathVariable int id) {
+    public void deleteConge(@PathVariable Long id) {
         congeService.deleteConge(id);
     }
 
     @GetMapping("/conge/{id}")
-    public ResponseEntity<Conge> getConge(@PathVariable int id) {
+    public ResponseEntity<Conge> getConge(@PathVariable Long id) {
         return new ResponseEntity<>(congeService.getConge(id), HttpStatus.OK);
     }
 }
