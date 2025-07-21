@@ -1,13 +1,13 @@
 package com.nerdtic.humanos.services;
 
+import com.nerdtic.humanos.dto.AbscenceCreateRequest;
 import com.nerdtic.humanos.entities.Abscence;
 
 import java.util.List;
 
 
 public interface AbscenceService {
-    Abscence createAbscence(Abscence abscence);
-    Abscence findAbscence(Integer abscenceId);
+    Abscence createAbscence(AbscenceCreateRequest createRequest);
     List<Abscence> findAllAbscences();
-    void deleteAbscence(Integer abscenceId);
+    void deleteAbscence(Long abscenceId);
 }

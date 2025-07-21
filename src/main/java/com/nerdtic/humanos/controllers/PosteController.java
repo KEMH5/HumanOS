@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.controllers;
 
+import com.nerdtic.humanos.dto.PosteCreateRequest;
 import com.nerdtic.humanos.entities.Poste;
 import com.nerdtic.humanos.services.PosteService;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class PosteController {
     @PostMapping("/postes")
     public Poste addPoste(
             @RequestBody
-            Poste poste
+            PosteCreateRequest poste
     ) {
         return posteService.createPoste(poste);
     }
@@ -40,7 +41,7 @@ public class PosteController {
     @ResponseStatus(HttpStatus.OK)
     public void deletePoste(
             @PathVariable("poste-id")
-            Integer posteId
+            Long posteId
     ){
         posteService.deletePoste(posteId);
     }

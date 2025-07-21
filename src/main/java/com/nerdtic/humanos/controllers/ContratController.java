@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.controllers;
 
+import com.nerdtic.humanos.dto.ContratCreateRequest;
 import com.nerdtic.humanos.entities.Contrat;
 import com.nerdtic.humanos.services.ContratService;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class ContratController {
     @PostMapping("/contrats")
     public Contrat createContrat(
             @RequestBody
-            Contrat contrat
+            ContratCreateRequest contrat
     ) {
         return this.contratService.saveContrat(contrat);
     }

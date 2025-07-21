@@ -33,7 +33,7 @@ public class TypeContratController {
     @GetMapping("/typeContrats/{typecontrat-id}")
     public TypeContrat getTypeContratById(
             @PathVariable("typecontrat-id")
-            Integer typecontratId
+            Long typecontratId
     ){
         return typeContratService.getTypeContratById(typecontratId);
     }
@@ -50,7 +50,7 @@ public class TypeContratController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteTypeContratById(
             @PathVariable("typeContrat-id")
-                Integer id
+            Long id
     ){
         typeContratService.deleteTypeContratById(id);
     }

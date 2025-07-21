@@ -1,12 +1,13 @@
 package com.nerdtic.humanos.services;
 
+import com.nerdtic.humanos.dto.PaieCreateRequest;
 import com.nerdtic.humanos.entities.Paie;
 
 import java.util.List;
 
 public interface PaieService {
-    Paie createPaie(Paie paie);
-    Paie getPaie(Integer id);
+    Paie createPaie(PaieCreateRequest createRequest);
+    Paie getPaie(Long id);
     List<Paie> getPaies();
-    void deletePaie(Integer id);
+    void deletePaie(Long id);
 }

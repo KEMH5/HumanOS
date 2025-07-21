@@ -19,11 +19,11 @@ public class Conge {
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE
     )
-    private Integer id;
+    private Long id;
 
     private String typeConge;
 
-    private Boolean status;
+    private Boolean statut;
 
     private LocalDate startDate;
 

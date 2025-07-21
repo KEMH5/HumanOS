@@ -20,7 +20,7 @@ public class Paie {
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE
     )
-    private Integer id;
+    private Long id;
 
     private LocalDate periodePaiementDebut;
 
@@ -46,4 +46,5 @@ public class Paie {
             name = "user_id"
     )
     private User user;
+
 }

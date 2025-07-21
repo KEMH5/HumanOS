@@ -18,7 +18,7 @@ public class TypeContrat {
             strategy = GenerationType.SEQUENCE
     )
     @Id
-    private Integer id;
+    private Long id;
 
     private String name;
 

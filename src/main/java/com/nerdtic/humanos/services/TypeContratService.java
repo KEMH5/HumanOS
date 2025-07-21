@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface TypeContratService {
     TypeContrat save(TypeContrat typeContrat);
-    TypeContrat getTypeContratById(Integer id);
+    TypeContrat getTypeContratById(Long id);
     List<TypeContrat> getAllTypeContrats();
-    void deleteTypeContratById(Integer id);
+    void deleteTypeContratById(Long id);
     List<TypeContrat> getAllTypeContratByName(String name);
 }

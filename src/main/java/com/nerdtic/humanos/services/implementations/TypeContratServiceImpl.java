@@ -25,7 +25,7 @@ public class TypeContratServiceImpl implements TypeContratService {
 
     @Override
     public TypeContrat getTypeContratById(
-            Integer id
+            Long id
     ) {
         return typeContratRepository.findById(id)
                 .orElse(null);
@@ -38,7 +38,7 @@ public class TypeContratServiceImpl implements TypeContratService {
 
     @Override
     public void deleteTypeContratById(
-            Integer id
+           Long id
     ) {
         typeContratRepository.deleteById(id);
     }

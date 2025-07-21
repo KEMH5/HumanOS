@@ -1,7 +1,9 @@
 package com.nerdtic.humanos.services.implementations;
 
+import com.nerdtic.humanos.dto.RoleUtilisateurCreateRequest;
 import com.nerdtic.humanos.entities.RoleUtilisateur;
 import com.nerdtic.humanos.repositories.RoleUtilisateurRepository;
+import com.nerdtic.humanos.security.repositories.UserRepository;
 import com.nerdtic.humanos.services.RoleUtilisateurService;
 import org.springframework.stereotype.Service;
 
@@ -9,24 +11,36 @@ import java.util.List;
 
 @Service
 public class RoleUtilisateurServiceImpl implements RoleUtilisateurService {
+    private final UserRepository userRepository;
     private RoleUtilisateurRepository roleUtilisateurRepository;
 
     public RoleUtilisateurServiceImpl(
-            RoleUtilisateurRepository roleUtilisateurRepository
-    ) {
+            RoleUtilisateurRepository roleUtilisateurRepository,
+            UserRepository userRepository) {
         this.roleUtilisateurRepository = roleUtilisateurRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
     public RoleUtilisateur createRoleUtilisateur(
-            RoleUtilisateur roleUtilisateur
+            RoleUtilisateurCreateRequest createRequest
     ) {
-        return roleUtilisateurRepository.save(roleUtilisateur);
+        var user = userRepository.findById(
+                createRequest.getIdUser()
+        ).orElseThrow(() -> new RuntimeException("User inttrouvable"));
+
+        var roleUser = new RoleUtilisateur();
+        roleUser.setTitle(createRequest.getTitle());
+        roleUser.setDescription(createRequest.getDescription());
+        roleUser.getUsers().add(user);
+
+        return roleUtilisateurRepository.save(roleUser);
+
     }
 
     @Override
     public RoleUtilisateur getRoleUtilisateur(
-            Integer id
+            Long id
     ) {
         return roleUtilisateurRepository.findById(id)
                 .orElse(null);
@@ -38,7 +52,7 @@ public class RoleUtilisateurServiceImpl implements RoleUtilisateurService {
     }
 
     @Override
-    public void deleteRoleUtilisateur(Integer id) {
+    public void deleteRoleUtilisateur(Long id) {
         roleUtilisateurRepository.deleteById(id);
     }
 }
