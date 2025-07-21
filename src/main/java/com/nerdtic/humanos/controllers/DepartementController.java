@@ -41,4 +41,5 @@ public class DepartementController {
     public ResponseEntity<Departement> getDepartementById(@PathVariable Long id){
         return new ResponseEntity<>(departementService.getDepartement(id), HttpStatus.OK);
     }
+
 }
