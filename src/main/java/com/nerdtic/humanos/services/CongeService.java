@@ -10,10 +10,10 @@ public interface CongeService {
 
     Conge createConge(Conge conge);
 
-    Conge updateConge(Conge conge, int id);
+    Conge updateConge(Conge conge, Long id);
 
-    void deleteConge(int id);
+    void deleteConge(Long id);
 
-    Conge getConge(int id);
+    Conge getConge(Long id);
 
 }

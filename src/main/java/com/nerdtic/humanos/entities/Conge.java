@@ -19,7 +19,7 @@ public class Conge {
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE
     )
-    private Integer id;
+    private Long id;
 
     private String typeConge;
 
@@ -30,14 +30,5 @@ public class Conge {
     private LocalDate endDate;
 
     private String description;
-
-    @ManyToOne(
-            fetch = FetchType.EAGER,
-            cascade = CascadeType.DETACH
-    )
-    @JoinColumn(
-            name = "user_id"
-    )
-    private User user;
 
 }

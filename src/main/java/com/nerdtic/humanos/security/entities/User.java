@@ -24,7 +24,7 @@ public class User {
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE
     )
-    private Integer id;
+    private Long id;
 
     @Column(
             unique=true

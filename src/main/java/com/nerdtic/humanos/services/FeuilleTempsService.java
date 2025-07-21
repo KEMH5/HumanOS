@@ -1,18 +1,19 @@
 package com.nerdtic.humanos.services;
 
+import com.nerdtic.humanos.dto.FeuilleTempsCreateRequest;
 import com.nerdtic.humanos.entities.FeuilleTemps;
 
 import java.util.List;
 
 public interface FeuilleTempsService {
 
-    List<FeuilleTemps> getFeuilleDeTemps();
+    List<FeuilleTemps> getAllFeuilleDeTemps();
 
-    FeuilleTemps createFeuilleDeTemps(FeuilleTemps feuilleDeTemps);
+    FeuilleTemps createFeuilleDeTemps(FeuilleTempsCreateRequest createRequest);
 
-    FeuilleTemps updateFeuilleDeTemps(FeuilleTemps feuilleDeTemps, int id);
+    FeuilleTemps updateFeuilleDeTemps(FeuilleTempsCreateRequest createRequest, Long id);
 
-    void deleteFeuilleDeTemps(int id);
+    void deleteFeuilleDeTemps(Long id);
 
-    FeuilleTemps getFeuilleDeTemps(int id);
+    FeuilleTemps getFeuilleDeTemps(Long id);
 }

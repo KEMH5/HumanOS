@@ -31,7 +31,7 @@ public class UserController {
     @GetMapping("/users/{user-id}")
     public User getUserById(
             @PathVariable("user-id")
-            Integer userId
+            Long userId
     ){
         return userService.getUser(userId);
     }
@@ -47,7 +47,7 @@ public class UserController {
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public void deleteUser(
-            Integer id
+            Long id
     ){
         userService.deleteUser(id);
     }

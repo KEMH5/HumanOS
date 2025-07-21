@@ -27,18 +27,18 @@ public class PointageController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Pointage> updatePointage(@PathVariable int id, @RequestBody Pointage pointage){
+    public ResponseEntity<Pointage> updatePointage(@PathVariable Long id, @RequestBody Pointage pointage){
         return new ResponseEntity<>(pointageService.updatePointage(pointage, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Pointage> deletePointage(@PathVariable int id){
+    public ResponseEntity<Pointage> deletePointage(@PathVariable Long id){
         pointageService.deletePointage(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pointage> getPointageById(@PathVariable int id){
+    public ResponseEntity<Pointage> getPointageById(@PathVariable Long id){
         return new ResponseEntity<>(pointageService.getPointageById(id), HttpStatus.OK);
     }
 }

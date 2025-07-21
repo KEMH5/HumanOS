@@ -30,13 +30,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(Integer id) {
+    public User getUser(Long id) {
         return userRepository.findById(id)
                 .orElse(null);
     }
 
     @Override
-    public void deleteUser(Integer id) {
+    public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
 

@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.services;
 
+import com.nerdtic.humanos.dto.FormationCreateRequest;
 import com.nerdtic.humanos.entities.Formation;
 
 import java.util.List;
@@ -9,11 +10,11 @@ public interface FormationService {
 
     List<Formation> getAllFormations();
 
-    Formation createFormation(Formation formation);
+    Formation createFormation(FormationCreateRequest createRequest);
 
-    Formation updateFormation(Formation formation, int id);
+    Formation updateFormation(FormationCreateRequest createRequest, Long id);
 
-    void deleteFormation(int id);
+    void deleteFormation(Long id);
 
-    Formation getFormationById(int id);
+    Formation getFormationById(Long id);
 }

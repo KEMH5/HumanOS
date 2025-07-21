@@ -10,9 +10,9 @@ public interface PointageService {
 
     Pointage createPointage(Pointage pointage);
 
-    Pointage updatePointage(Pointage pointage, int id);
+    Pointage updatePointage(Pointage pointage, Long id);
 
-    void deletePointage(int id);
+    void deletePointage(Long id);
 
-    Pointage getPointageById(int id);
+    Pointage getPointageById(Long id);
 }

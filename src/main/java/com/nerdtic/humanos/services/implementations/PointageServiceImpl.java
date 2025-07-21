@@ -30,11 +30,13 @@ public class PointageServiceImpl implements PointageService {
         if(existingPointage.isPresent()){
             throw new PointageAlreadyExistsException("Pointage already exists");
         }
-        return pointageRepository.save(pointage);
+        else {
+            return pointageRepository.save(pointage);
+        }
     }
 
     @Override
-    public Pointage updatePointage(Pointage pointageDetails, int id) {
+    public Pointage updatePointage(Pointage pointageDetails, Long id) {
 
         Optional<Pointage> pointage = pointageRepository.findById(id);
 
@@ -44,36 +46,34 @@ public class PointageServiceImpl implements PointageService {
             updatedPointage.setStatut(pointageDetails.getStatut());
             updatedPointage.setDatePointage(pointageDetails.getDatePointage());
             updatedPointage.setHeurePointage(pointageDetails.getHeurePointage());
-            updatedPointage.setUser(pointageDetails.getUser());
 
-            pointageRepository.save(updatedPointage);
+            return pointageRepository.save(updatedPointage);
         }
-
-        throw new PointageNotFoundException("Pointage not found");
-    }
-
-    @Override
-    public void deletePointage(int id) {
-
-        Optional<Pointage> pointage = pointageRepository.findById(id);
-
-        if(pointage.isPresent()) {
-            pointageRepository.delete(pointage.get());
-        }
-
         else {
             throw new PointageNotFoundException("Pointage not found");
         }
     }
 
     @Override
-    public Pointage getPointageById(int id) {
+    public void deletePointage(Long id) {
+
+        Optional<Pointage> pointage = pointageRepository.findById(id);
+
+        if(pointage.isPresent()) {
+            pointageRepository.delete(pointage.get());
+        }
+        else {
+            throw new PointageNotFoundException("Pointage not found");
+        }
+    }
+
+    @Override
+    public Pointage getPointageById(Long id) {
 
         Optional<Pointage> pointage = pointageRepository.findById(id);
         if(pointage.isPresent()) {
             return pointage.get();
         }
-
         else {
             throw new PointageNotFoundException("Pointage not found");
         }

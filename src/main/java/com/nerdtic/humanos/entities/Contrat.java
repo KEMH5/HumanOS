@@ -19,7 +19,7 @@ public class Contrat {
             strategy = GenerationType.SEQUENCE
     )
     @Id
-    private Integer id;
+    private Long id;
 
     private LocalDate dateDebut;
 

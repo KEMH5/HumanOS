@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.controllers;
 
+import com.nerdtic.humanos.dto.DepartementCreateRequest;
 import com.nerdtic.humanos.entities.Departement;
 import com.nerdtic.humanos.services.DepartementService;
 import lombok.RequiredArgsConstructor;
@@ -22,22 +23,22 @@ public class DepartementController {
     }
 
     @PostMapping
-    public Departement createDepartement(@RequestBody Departement departement){
+    public Departement createDepartement(@RequestBody DepartementCreateRequest departement){
         return departementService.createDepartement(departement);
     }
 
     @PutMapping("/update/{id}")
-    public Departement updateDepartement(@PathVariable int id, @RequestBody Departement departement){
+    public Departement updateDepartement(@PathVariable Long id, @RequestBody DepartementCreateRequest departement){
         return departementService.updateDepartement(departement, id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteDepartement(@PathVariable int id){
+    public void deleteDepartement(@PathVariable Long id){
         departementService.deleteDepartement(id);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Departement> getDepartementById(@PathVariable int id){
-        return new ResponseEntity<>(departementService.getDepartementById(id), HttpStatus.OK);
+    public ResponseEntity<Departement> getDepartementById(@PathVariable Long id){
+        return new ResponseEntity<>(departementService.getDepartement(id), HttpStatus.OK);
     }
 }

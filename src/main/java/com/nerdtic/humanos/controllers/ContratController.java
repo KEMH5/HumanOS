@@ -31,7 +31,7 @@ public class ContratController {
     @GetMapping("/contrats/{contrat-id}")
     public Contrat getContratById(
             @PathVariable("contrat-id")
-            Integer contratId
+            Long contratId
     ) {
         return contratService.getContrat(contratId);
     }
@@ -40,7 +40,7 @@ public class ContratController {
     @ResponseStatus(HttpStatus.OK)
     public void delete(
             @PathVariable("contrat-id")
-            Integer id
+            Long id
     ){
         contratService.deleteContrat(id);
     }

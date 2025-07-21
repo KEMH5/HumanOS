@@ -7,9 +7,9 @@ import java.util.List;
 public interface ContratService {
     Contrat saveContrat(Contrat contrat);
 
-    Contrat getContrat(Integer id);
+    Contrat getContrat(Long id);
 
     List<Contrat> getAllContrats();
 
-    void deleteContrat(Integer id);
+    void deleteContrat(Long id);
 }

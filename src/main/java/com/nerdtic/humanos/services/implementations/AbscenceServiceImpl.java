@@ -3,13 +3,15 @@ package com.nerdtic.humanos.services.implementations;
 import com.nerdtic.humanos.entities.Abscence;
 import com.nerdtic.humanos.repositories.AbscenceRepository;
 import com.nerdtic.humanos.services.AbscenceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class AbscenceServiceImpl implements AbscenceService {
-    private AbscenceRepository abscenceRepository;
+
+    private final AbscenceRepository abscenceRepository;
 
     public AbscenceServiceImpl(AbscenceRepository abscenceRepository) {
         this.abscenceRepository = abscenceRepository;

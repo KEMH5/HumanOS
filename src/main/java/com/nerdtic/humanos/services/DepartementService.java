@@ -1,20 +1,20 @@
 package com.nerdtic.humanos.services;
 
+import com.nerdtic.humanos.dto.DepartementCreateRequest;
 import com.nerdtic.humanos.entities.Departement;
 
 import java.util.List;
 
 public interface DepartementService {
 
-    Departement createDepartement(Departement departement);
-
     List<Departement> getAllDepartements();
 
-    Departement updateDepartement(Departement departement, int id);
+    Departement createDepartement(DepartementCreateRequest createRequest);
 
-    Departement getDepartementById(int id);
+    Departement updateDepartement(DepartementCreateRequest createRequest, Long id);
 
-    void deleteDepartement(int id);
+    void deleteDepartement(Long id);
 
+    Departement getDepartement(Long id);
 
 }
