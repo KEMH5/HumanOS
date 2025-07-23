@@ -35,7 +35,7 @@ public class FeuilleTempsController {
         feuilleTempsService.deleteFeuilleDeTemps(id);
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public ResponseEntity<FeuilleTemps> getFeuilleDeTemps(@PathVariable Long id){
         return new ResponseEntity<>(feuilleTempsService.getFeuilleDeTemps(id), HttpStatus.OK);
     }

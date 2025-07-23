@@ -32,13 +32,6 @@ public class AbscenceController {
         return abscenceService.findAllAbscences();
     }
 
-//    @GetMapping("absences/{absence-id}")
-//    public Abscence getAbsence(
-//            @PathVariable("absence-id")
-//            Long absenceId
-//    ) {
-//        return abscenceService.findAbscence(absenceId);
-//    }
 
     @DeleteMapping("absences/{absence-id}")
     @ResponseStatus(HttpStatus.OK)

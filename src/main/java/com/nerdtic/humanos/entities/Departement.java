@@ -16,7 +16,9 @@ import java.util.List;
 public class Departement {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE
+    )
     private Long id;
 
     private String nomDepartement;
