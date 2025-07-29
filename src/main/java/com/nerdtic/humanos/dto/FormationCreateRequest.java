@@ -30,7 +30,8 @@ public class FormationCreateRequest {
 
     private LocalDate dateFin;
 
+    private Long idUser;
+
     private StatutFormation statut;
 
-    private Long idDepartement ;
 }

@@ -20,5 +20,7 @@ public class UserCreateRequest {
 
     private Long idAbscence;
 
+    private Long idFormation;
+
 
 }

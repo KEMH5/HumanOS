@@ -7,6 +7,7 @@ import com.nerdtic.humanos.exception.FormationAlreadyExistsException;
 import com.nerdtic.humanos.exception.FormationNotFoundException;
 import com.nerdtic.humanos.repositories.DepartementRepository;
 import com.nerdtic.humanos.repositories.FormationRepository;
+import com.nerdtic.humanos.security.repositories.UserRepository;
 import com.nerdtic.humanos.services.FormationService;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +19,12 @@ public class FormationServiceImpl implements FormationService {
 
     private final FormationRepository formationRepository;
     private final DepartementRepository departementRepository;
-    
-    public FormationServiceImpl(FormationRepository formationRepository, DepartementRepository departementRepository) {
+    private final UserRepository userRepository;
+
+    public FormationServiceImpl(FormationRepository formationRepository, DepartementRepository departementRepository, UserRepository userRepository) {
         this.formationRepository = formationRepository;
         this.departementRepository = departementRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -32,8 +35,8 @@ public class FormationServiceImpl implements FormationService {
     @Override
     public Formation createFormation(FormationCreateRequest createRequest) {
 
-        var departement = departementRepository.findById(createRequest.getIdDepartement())
-                .orElseThrow(() -> new DepartementNotFoundException("Departement not found"));
+        var user = userRepository.findById(createRequest.getIdUser())
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         var formation = new Formation();
 
@@ -46,7 +49,7 @@ public class FormationServiceImpl implements FormationService {
         formation.setDomaine(createRequest.getDomaine());
         formation.setStatut(createRequest.getStatut());
         formation.setDuree(createRequest.getDuree());
-        formation.getDepartements().add(departement);
+        formation.getUsers().add(user);
 
         return formationRepository.save(formation);
     }
@@ -57,8 +60,8 @@ public class FormationServiceImpl implements FormationService {
         var formation = formationRepository.findById(id)
                 .orElseThrow(() -> new FormationNotFoundException("Formation not found"));
         
-        var departement = departementRepository.findById(createRequest.getIdDepartement())
-                .orElseThrow(() -> new DepartementNotFoundException("Departement not found"));
+        var user = userRepository.findById(createRequest.getIdUser())
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         formation.setTitre(createRequest.getTitre());
         formation.setDescription(createRequest.getDescription());
@@ -69,8 +72,8 @@ public class FormationServiceImpl implements FormationService {
         formation.setDomaine(createRequest.getDomaine());
         formation.setStatut(createRequest.getStatut());
         formation.setDuree(createRequest.getDuree());
-        formation.getDepartements().add(departement);
-        formation.getDepartements().remove(departement);
+        formation.getUsers().add(user);
+        formation.getUsers().remove(user);
 
         return formationRepository.save(formation);
     }
