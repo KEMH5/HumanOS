@@ -27,6 +27,7 @@ public class Contrat {
 
     private String description;
 
+
     @ManyToOne(
             fetch = FetchType.EAGER,
             cascade = CascadeType.DETACH

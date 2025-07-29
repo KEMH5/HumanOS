@@ -24,15 +24,8 @@ public class DepartementServiceImpl implements DepartementService {
 
     @Override
     public Departement createDepartement(DepartementCreateRequest createRequest) {
-        var formation = formationRepository.findById(
-                createRequest.getIdFormation()).
-                orElseThrow(() ->new RuntimeException("Formation introuvable"));
-
         var departement = new Departement();
-
         departement.setNomDepartement(createRequest.getNomDepartement());
-        departement.getFormations().add(formation);
-
         return departementRepository.save(departement);
     }
 

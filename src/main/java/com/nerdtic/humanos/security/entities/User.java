@@ -3,6 +3,7 @@ package com.nerdtic.humanos.security.entities;
 
 import com.nerdtic.humanos.entities.Abscence;
 import com.nerdtic.humanos.entities.Departement;
+import com.nerdtic.humanos.entities.Formation;
 import com.nerdtic.humanos.entities.RoleUtilisateur;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Collection;
 import java.util.List;
 
 @Setter
@@ -75,6 +77,16 @@ public class User {
     )
     private Departement departement;
 
-
+    @ManyToMany
+    @JoinTable(
+            name = "user_formation",
+            joinColumns = @JoinColumn(
+                    name = "user_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "formation_id"
+            )
+    )
+    private List<Formation> formations;
 
 }

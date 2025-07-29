@@ -1,5 +1,6 @@
 package com.nerdtic.humanos.entities;
 
+import com.nerdtic.humanos.security.entities.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,7 +43,10 @@ public class Formation {
     )
     private StatutFormation statut;
 
-    @ManyToMany(mappedBy = "formations")
-    private List<Departement> departements ;
+    @ManyToMany(
+            fetch = FetchType.EAGER,
+            mappedBy = "formations"
+    )
+    private List<User> users;
 
 }

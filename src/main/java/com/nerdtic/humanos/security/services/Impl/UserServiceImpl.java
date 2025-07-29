@@ -2,6 +2,7 @@ package com.nerdtic.humanos.security.services.Impl;
 
 import com.nerdtic.humanos.repositories.AbscenceRepository;
 import com.nerdtic.humanos.repositories.DepartementRepository;
+import com.nerdtic.humanos.repositories.FormationRepository;
 import com.nerdtic.humanos.repositories.RoleUtilisateurRepository;
 import com.nerdtic.humanos.security.dto.UserCreateRequest;
 import com.nerdtic.humanos.security.entities.User;
@@ -18,14 +19,17 @@ public class UserServiceImpl implements UserService {
     private final DepartementRepository departementRepository;
     private final AbscenceRepository abscenceRepository;
     private final RoleUtilisateurRepository roleUtilisateurRepository;
+    private final FormationRepository formationRepository;
 
     public UserServiceImpl(
             UserRepository userRepository,
-            DepartementRepository departementRepository, AbscenceRepository abscenceRepository, RoleUtilisateurRepository roleUtilisateurRepository) {
+            DepartementRepository departementRepository, AbscenceRepository abscenceRepository, RoleUtilisateurRepository roleUtilisateurRepository, FormationRepository formationRepository)
+    {
         this.userRepository = userRepository;
         this.departementRepository = departementRepository;
         this.abscenceRepository = abscenceRepository;
         this.roleUtilisateurRepository = roleUtilisateurRepository;
+        this.formationRepository = formationRepository;
     }
 
 
@@ -44,6 +48,11 @@ public class UserServiceImpl implements UserService {
                 createRequest.getIdRole()
         ).orElseThrow(() -> new RuntimeException("Role not found"));
 
+        var formation = formationRepository.findById(
+                createRequest.getIdFormation())
+                .orElseThrow(() -> new RuntimeException("Formation not found"));
+
+
         var user = new User();
 
         user.setFirstName(createRequest.getFirstName());
@@ -54,6 +63,7 @@ public class UserServiceImpl implements UserService {
         user.setDepartement(departement);
         user.getUserRoles().add(role);
         user.getAbsences().add(absence);
+        user.getFormations().add(formation);
 
         return userRepository.save(user);
     }
