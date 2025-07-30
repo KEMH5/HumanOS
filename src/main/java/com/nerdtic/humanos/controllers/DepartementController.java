@@ -23,7 +23,10 @@ public class DepartementController {
     }
 
     @PostMapping
-    public Departement createDepartement(@RequestBody DepartementCreateRequest departement){
+    public Departement createDepartement(
+            @RequestBody
+            DepartementCreateRequest departement
+    ) {
         return departementService.createDepartement(departement);
     }
 

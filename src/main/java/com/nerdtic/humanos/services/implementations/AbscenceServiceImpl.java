@@ -34,7 +34,7 @@ public class AbscenceServiceImpl implements AbscenceService {
         abscence.setStartDate(createRequest.getStartDate());
         abscence.setEndDate(createRequest.getEndDate());
         abscence.setStatut(createRequest.getStatut());
-        abscence.getUsers().add(user);
+        abscence.setUser(user);
 
         return abscenceRepository.save(abscence);
 

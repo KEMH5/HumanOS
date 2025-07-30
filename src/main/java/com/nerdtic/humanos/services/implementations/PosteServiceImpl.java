@@ -23,16 +23,10 @@ public class PosteServiceImpl implements PosteService {
     public Poste createPoste(
             PosteCreateRequest createRequest
     ) {
-
-        var contrat = contratRepository.findById(
-                createRequest.getIdContrat()
-        ).orElseThrow(() -> new RuntimeException("Contrat introuvable"));
-
         var poste = new Poste();
 
         poste.setTitle(createRequest.getTitle());
         poste.setDescription(createRequest.getDescription());
-        poste.getContrats().add(contrat);
 
         return posteRepository.save(poste);
     }

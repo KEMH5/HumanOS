@@ -62,7 +62,6 @@ public class UserServiceImpl implements UserService {
         user.setPassword(createRequest.getPassword());
         user.setDepartement(departement);
         user.getUserRoles().add(role);
-        user.getAbsences().add(absence);
         user.getFormations().add(formation);
 
         return userRepository.save(user);

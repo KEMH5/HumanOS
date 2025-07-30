@@ -32,11 +32,15 @@ public class Abscence {
 
     private Boolean statut;
 
-    @ManyToMany(
+
+    @ManyToOne(
             fetch = FetchType.EAGER,
-            mappedBy = "absences"
+            cascade = CascadeType.DETACH
     )
-    private List<User> users;
+    @JoinColumn(
+            name = "user_id"
+    )
+    private User user;
 
 
 }

@@ -24,15 +24,4 @@ public class Departement {
     private String nomDepartement;
 
 
-    @ManyToMany(
-            fetch = FetchType.EAGER,
-            cascade = CascadeType.DETACH
-    )
-    @JoinTable(
-            name = "departement_formation",
-            joinColumns = @JoinColumn(name = "departement_id"),
-            inverseJoinColumns = @JoinColumn(name = "formation_id")
-    )
-    private List<Formation> formations;
-
 }

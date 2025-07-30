@@ -35,17 +35,15 @@ public class DepartementServiceImpl implements DepartementService {
     }
 
     @Override
-    public Departement updateDepartement(DepartementCreateRequest createRequest, Long id) {
+    public Departement updateDepartement(
+            DepartementCreateRequest createRequest,
+            Long id)
+    {
 
         var departement = departementRepository.findById(id)
                 .orElseThrow(() ->new DepartementNotFoundException("Departement not found"));
 
-        var formation = formationRepository.findById(createRequest.getIdFormation())
-                .orElseThrow(() ->new FormationNotFoundException("Formation not found"));
-
         departement.setNomDepartement(createRequest.getNomDepartement());
-        departement.getFormations().add(formation);
-        departement.getFormations().remove(formation);
 
         return departementRepository.save(departement);
     }

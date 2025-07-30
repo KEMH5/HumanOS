@@ -56,17 +56,6 @@ public class User {
     )
     private List<RoleUtilisateur> userRoles;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_abscence",
-            joinColumns = @JoinColumn(
-                    name = "user_id"
-            ),
-            inverseJoinColumns = @JoinColumn(
-                    name = "abscence_id"
-            )
-    )
-    private List<Abscence> absences;
 
     @ManyToOne(
             fetch = FetchType.EAGER,

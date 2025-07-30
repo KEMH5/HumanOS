@@ -25,10 +25,4 @@ public class Poste {
 
     private String description;
 
-    @OneToMany(
-            fetch = FetchType.EAGER,
-            mappedBy = "poste"
-    )
-    private List<Contrat> contrats;
-
 }
