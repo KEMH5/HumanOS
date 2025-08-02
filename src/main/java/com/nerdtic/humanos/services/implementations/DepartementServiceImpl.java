@@ -1,6 +1,7 @@
 package com.nerdtic.humanos.services.implementations;
 
 import com.nerdtic.humanos.dto.DepartementCreateRequest;
+import com.nerdtic.humanos.dto.readRequest.DepartementReadRequest;
 import com.nerdtic.humanos.entities.Departement;
 import com.nerdtic.humanos.exception.DepartementNotFoundException;
 import com.nerdtic.humanos.exception.FormationNotFoundException;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DepartementServiceImpl implements DepartementService {
@@ -30,8 +32,11 @@ public class DepartementServiceImpl implements DepartementService {
     }
 
     @Override
-    public List<Departement> getAllDepartements() {
-        return departementRepository.findAll();
+    public List<DepartementReadRequest> getAllDepartements(){
+        return departementRepository.findAll()
+                .stream()
+                .map(departement -> new DepartementReadRequest(departement.getNomDepartement())).
+                collect(Collectors.toList());
     }
 
     @Override
@@ -57,10 +62,14 @@ public class DepartementServiceImpl implements DepartementService {
     }
 
     @Override
-    public Departement getDepartement(Long id) {
+    public DepartementReadRequest getDepartement(Long id) {
+
 
         var departement = departementRepository.findById(id)
                 .orElseThrow(() -> new DepartementNotFoundException("Departement not found"));
-        return departement;
+
+        var readRequest = new DepartementReadRequest(departement.getNomDepartement());
+
+        return readRequest;
     }
 }

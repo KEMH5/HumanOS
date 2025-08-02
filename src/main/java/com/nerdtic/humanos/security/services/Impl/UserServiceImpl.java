@@ -21,6 +21,8 @@ public class UserServiceImpl implements UserService {
     private final RoleUtilisateurRepository roleUtilisateurRepository;
     private final FormationRepository formationRepository;
 
+
+
     public UserServiceImpl(
             UserRepository userRepository,
             DepartementRepository departementRepository, AbscenceRepository abscenceRepository, RoleUtilisateurRepository roleUtilisateurRepository, FormationRepository formationRepository)

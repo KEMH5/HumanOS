@@ -1,6 +1,7 @@
 package com.nerdtic.humanos.controllers;
 
 import com.nerdtic.humanos.dto.DepartementCreateRequest;
+import com.nerdtic.humanos.dto.readRequest.DepartementReadRequest;
 import com.nerdtic.humanos.entities.Departement;
 import com.nerdtic.humanos.services.DepartementService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class DepartementController {
     private final DepartementService departementService;
 
     @GetMapping
-    public ResponseEntity<List<Departement>> getAllDepartements(){
+    public ResponseEntity<List<DepartementReadRequest>> getAllDepartements(){
         return new ResponseEntity<>(departementService.getAllDepartements(), HttpStatus.OK);
     }
 
@@ -31,7 +32,12 @@ public class DepartementController {
     }
 
     @PutMapping("/update/{id}")
-    public Departement updateDepartement(@PathVariable Long id, @RequestBody DepartementCreateRequest departement){
+    public Departement updateDepartement(
+            @PathVariable
+            Long id,
+            @RequestBody
+            DepartementCreateRequest departement
+    ){
         return departementService.updateDepartement(departement, id);
     }
 
@@ -41,8 +47,11 @@ public class DepartementController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Departement> getDepartementById(@PathVariable Long id){
-        return new ResponseEntity<>(departementService.getDepartement(id), HttpStatus.OK);
+    public DepartementReadRequest getDepartementById(
+            @PathVariable("id")
+            Long departementId
+    ){
+        return departementService.getDepartement(departementId);
     }
 
 }

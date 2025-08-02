@@ -12,3 +12,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  security:
+    user:
+      name: kemh
+      password: my-login-password
