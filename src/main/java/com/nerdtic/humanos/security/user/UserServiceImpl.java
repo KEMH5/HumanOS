@@ -1,13 +1,9 @@
-package com.nerdtic.humanos.security.services.Impl;
+package com.nerdtic.humanos.security.user;
 
 import com.nerdtic.humanos.repositories.AbscenceRepository;
 import com.nerdtic.humanos.repositories.DepartementRepository;
 import com.nerdtic.humanos.repositories.FormationRepository;
-import com.nerdtic.humanos.repositories.RoleUtilisateurRepository;
-import com.nerdtic.humanos.security.dto.UserCreateRequest;
-import com.nerdtic.humanos.security.entities.User;
-import com.nerdtic.humanos.security.repositories.UserRepository;
-import com.nerdtic.humanos.security.services.UserService;
+import com.nerdtic.humanos.security.role.RoleUtilisateurRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -60,7 +56,6 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(createRequest.getFirstName());
         user.setLastName(createRequest.getLastName());
         user.setEmail(createRequest.getEmail());
-        user.setUsername(createRequest.getUsername());
         user.setPassword(createRequest.getPassword());
         user.setDepartement(departement);
         user.getUserRoles().add(role);

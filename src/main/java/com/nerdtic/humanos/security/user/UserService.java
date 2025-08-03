@@ -1,7 +1,4 @@
-package com.nerdtic.humanos.security.services;
-
-import com.nerdtic.humanos.security.dto.UserCreateRequest;
-import com.nerdtic.humanos.security.entities.User;
+package com.nerdtic.humanos.security.user;
 
 import java.util.List;
 

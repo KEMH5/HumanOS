@@ -3,7 +3,7 @@ package com.nerdtic.humanos.services.implementations;
 import com.nerdtic.humanos.dto.PaieCreateRequest;
 import com.nerdtic.humanos.entities.Paie;
 import com.nerdtic.humanos.repositories.PaieRepository;
-import com.nerdtic.humanos.security.repositories.UserRepository;
+import com.nerdtic.humanos.security.user.UserRepository;
 import com.nerdtic.humanos.services.PaieService;
 import org.springframework.stereotype.Service;
 

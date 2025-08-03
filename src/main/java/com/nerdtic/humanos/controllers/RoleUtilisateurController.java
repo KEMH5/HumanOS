@@ -2,7 +2,7 @@ package com.nerdtic.humanos.controllers;
 
 
 import com.nerdtic.humanos.dto.RoleUtilisateurCreateRequest;
-import com.nerdtic.humanos.entities.RoleUtilisateur;
+import com.nerdtic.humanos.security.role.RoleUtilisateur;
 import com.nerdtic.humanos.services.RoleUtilisateurService;
 import org.springframework.web.bind.annotation.*;
 

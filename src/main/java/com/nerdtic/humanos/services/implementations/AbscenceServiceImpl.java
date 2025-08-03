@@ -3,7 +3,7 @@ package com.nerdtic.humanos.services.implementations;
 import com.nerdtic.humanos.dto.AbscenceCreateRequest;
 import com.nerdtic.humanos.entities.Abscence;
 import com.nerdtic.humanos.repositories.AbscenceRepository;
-import com.nerdtic.humanos.security.repositories.UserRepository;
+import com.nerdtic.humanos.security.user.UserRepository;
 import com.nerdtic.humanos.services.AbscenceService;
 import org.springframework.stereotype.Service;
 

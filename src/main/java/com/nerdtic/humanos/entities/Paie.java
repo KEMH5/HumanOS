@@ -1,7 +1,7 @@
 package com.nerdtic.humanos.entities;
 
 
-import com.nerdtic.humanos.security.entities.User;
+import com.nerdtic.humanos.security.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

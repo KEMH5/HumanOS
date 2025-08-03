@@ -1,7 +1,7 @@
 package com.nerdtic.humanos.services;
 
 import com.nerdtic.humanos.dto.RoleUtilisateurCreateRequest;
-import com.nerdtic.humanos.entities.RoleUtilisateur;
+import com.nerdtic.humanos.security.role.RoleUtilisateur;
 
 import java.util.List;
 

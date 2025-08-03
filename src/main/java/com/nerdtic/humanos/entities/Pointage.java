@@ -1,6 +1,5 @@
 package com.nerdtic.humanos.entities;
 
-import com.nerdtic.humanos.security.entities.User;
 import jakarta.persistence.*;
 import lombok.*;
 

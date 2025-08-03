@@ -5,8 +5,7 @@ import com.nerdtic.humanos.entities.Contrat;
 import com.nerdtic.humanos.repositories.ContratRepository;
 import com.nerdtic.humanos.repositories.PosteRepository;
 import com.nerdtic.humanos.repositories.TypeContratRepository;
-import com.nerdtic.humanos.security.entities.User;
-import com.nerdtic.humanos.security.repositories.UserRepository;
+import com.nerdtic.humanos.security.user.UserRepository;
 import com.nerdtic.humanos.services.ContratService;
 import org.springframework.stereotype.Service;
 

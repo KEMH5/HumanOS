@@ -1,4 +1,4 @@
-package com.nerdtic.humanos.security.dto;
+package com.nerdtic.humanos.security.user;
 
 import lombok.Data;
 

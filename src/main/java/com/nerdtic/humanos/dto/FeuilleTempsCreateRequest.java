@@ -1,10 +1,5 @@
 package com.nerdtic.humanos.dto;
 
-import com.nerdtic.humanos.security.entities.User;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 

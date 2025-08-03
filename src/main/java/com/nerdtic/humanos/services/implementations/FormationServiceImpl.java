@@ -2,12 +2,10 @@ package com.nerdtic.humanos.services.implementations;
 
 import com.nerdtic.humanos.dto.FormationCreateRequest;
 import com.nerdtic.humanos.entities.Formation;
-import com.nerdtic.humanos.exception.DepartementNotFoundException;
-import com.nerdtic.humanos.exception.FormationAlreadyExistsException;
 import com.nerdtic.humanos.exception.FormationNotFoundException;
 import com.nerdtic.humanos.repositories.DepartementRepository;
 import com.nerdtic.humanos.repositories.FormationRepository;
-import com.nerdtic.humanos.security.repositories.UserRepository;
+import com.nerdtic.humanos.security.user.UserRepository;
 import com.nerdtic.humanos.services.FormationService;
 import org.springframework.stereotype.Service;
 

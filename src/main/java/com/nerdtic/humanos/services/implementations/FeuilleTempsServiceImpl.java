@@ -4,7 +4,7 @@ import com.nerdtic.humanos.dto.FeuilleTempsCreateRequest;
 import com.nerdtic.humanos.entities.FeuilleTemps;
 import com.nerdtic.humanos.exception.FeuilleTempsNotFound;
 import com.nerdtic.humanos.repositories.FeuilleTempsRepository;
-import com.nerdtic.humanos.security.repositories.UserRepository;
+import com.nerdtic.humanos.security.user.UserRepository;
 import com.nerdtic.humanos.services.FeuilleTempsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

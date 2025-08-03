@@ -1,9 +1,9 @@
 package com.nerdtic.humanos.services.implementations;
 
 import com.nerdtic.humanos.dto.RoleUtilisateurCreateRequest;
-import com.nerdtic.humanos.entities.RoleUtilisateur;
-import com.nerdtic.humanos.repositories.RoleUtilisateurRepository;
-import com.nerdtic.humanos.security.repositories.UserRepository;
+import com.nerdtic.humanos.security.role.RoleUtilisateur;
+import com.nerdtic.humanos.security.role.RoleUtilisateurRepository;
+import com.nerdtic.humanos.security.user.UserRepository;
 import com.nerdtic.humanos.services.RoleUtilisateurService;
 import org.springframework.stereotype.Service;
 
