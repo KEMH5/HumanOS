@@ -1,8 +1,8 @@
 package com.nerdtic.humanos.security.user;
 
 
-import com.nerdtic.humanos.entities.Departement;
-import com.nerdtic.humanos.entities.Formation;
+import com.nerdtic.humanos.departement.Departement;
+import com.nerdtic.humanos.formation.Formation;
 import com.nerdtic.humanos.security.role.RoleUtilisateur;
 import jakarta.persistence.*;
 import lombok.*;
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "user_table")
 @EntityListeners(AuditingEntityListener.class)
 public class User implements UserDetails, Principal{
     @Id

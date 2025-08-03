@@ -1,10 +1,12 @@
 package com.nerdtic.humanos.auth;
 
 
+import com.nerdtic.humanos.contrat.ContratRepository;
 import com.nerdtic.humanos.email.EmailService;
 import com.nerdtic.humanos.email.EmailTemplateName;
-import com.nerdtic.humanos.repositories.DepartementRepository;
-import com.nerdtic.humanos.repositories.FormationRepository;
+import com.nerdtic.humanos.departement.DepartementRepository;
+import com.nerdtic.humanos.formation.Formation;
+import com.nerdtic.humanos.formation.FormationRepository;
 import com.nerdtic.humanos.security.role.RoleUtilisateurRepository;
 import com.nerdtic.humanos.security.user.Token;
 import com.nerdtic.humanos.security.user.TokenRepository;
@@ -18,15 +20,16 @@ import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
 
-    private RoleUtilisateurRepository roleUtilisateurRepository;
-    private DepartementRepository departementRepository;
-    private FormationRepository formationRepository;
+    private final RoleUtilisateurRepository roleUtilisateurRepository;
+    private final DepartementRepository departementRepository;
+    private final FormationRepository formationRepository;
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
@@ -41,14 +44,21 @@ public class AuthenticationService {
                 request.getRoleId()
         ).orElseThrow(() -> new RuntimeException("ROLE USER was not initialized"));
 
+        List<Formation> userFormations = new ArrayList<>();
+
         var departement = departementRepository.findById(
                 request.getDepartementId()
         ).orElseThrow(() -> new RuntimeException("USER Departement was not initialized"));
 
-        var formation = formationRepository.findById(
-                request.getFormationId()
-        ).orElseThrow(() -> new RuntimeException("Formation was not initialized"));
 
+
+
+        if (request.getFormationId() != null){
+            var formation = formationRepository.findById(
+                    request.getFormationId()
+            ).orElseThrow(() -> new RuntimeException("Formation was not initialized"));
+            userFormations.add(formation);
+        }
         var user = User.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
@@ -56,13 +66,12 @@ public class AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .accountLocked(false)
                 .enabled(false)
-                .formations(List.of(formation))
+                .formations(userFormations)
                 .departement(departement)
                 .userRoles(List.of(userRole))
                 .build();
         userRepository.save(user);
         sendValidationEmail(user);
-
     }
 
     private void sendValidationEmail(User user) throws MessagingException {
@@ -75,14 +84,13 @@ public class AuthenticationService {
                 newToken,
                 "Account Activation"
         );
-
     }
 
     private String generateAndSendActivationToken(User user) {
         //generate Token
         String generatedToken = generateActivationCode(4);
         var token = Token.builder()
-                .Token(generatedToken)
+                .token(generatedToken)
                 .createdAt(LocalDateTime.now())
                 .expiredAt(LocalDateTime.now().plusMinutes(15))
                 .user(user)

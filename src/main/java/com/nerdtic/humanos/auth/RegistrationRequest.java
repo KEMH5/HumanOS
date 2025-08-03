@@ -34,7 +34,8 @@ public class RegistrationRequest {
     @Size(min = 8, message = "Password should be 8 characters log minimum")
     private String password;
 
-    private long RoleId;
-    private long DepartementId;
-    private long FormationId;
+    private Long RoleId;
+    private Long DepartementId;
+    private Long FormationId;
+    private Long idContrat;
 }

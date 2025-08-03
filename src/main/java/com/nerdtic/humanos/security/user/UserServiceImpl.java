@@ -1,14 +1,16 @@
 package com.nerdtic.humanos.security.user;
 
-import com.nerdtic.humanos.repositories.AbscenceRepository;
-import com.nerdtic.humanos.repositories.DepartementRepository;
-import com.nerdtic.humanos.repositories.FormationRepository;
+import com.nerdtic.humanos.absence.AbscenceRepository;
+import com.nerdtic.humanos.departement.DepartementRepository;
+import com.nerdtic.humanos.formation.FormationRepository;
 import com.nerdtic.humanos.security.role.RoleUtilisateurRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -17,18 +19,6 @@ public class UserServiceImpl implements UserService {
     private final RoleUtilisateurRepository roleUtilisateurRepository;
     private final FormationRepository formationRepository;
 
-
-
-    public UserServiceImpl(
-            UserRepository userRepository,
-            DepartementRepository departementRepository, AbscenceRepository abscenceRepository, RoleUtilisateurRepository roleUtilisateurRepository, FormationRepository formationRepository)
-    {
-        this.userRepository = userRepository;
-        this.departementRepository = departementRepository;
-        this.abscenceRepository = abscenceRepository;
-        this.roleUtilisateurRepository = roleUtilisateurRepository;
-        this.formationRepository = formationRepository;
-    }
 
 
     @Override
@@ -46,9 +36,8 @@ public class UserServiceImpl implements UserService {
                 createRequest.getIdRole()
         ).orElseThrow(() -> new RuntimeException("Role not found"));
 
-        var formation = formationRepository.findById(
-                createRequest.getIdFormation())
-                .orElseThrow(() -> new RuntimeException("Formation not found"));
+
+
 
 
         var user = new User();
@@ -59,7 +48,12 @@ public class UserServiceImpl implements UserService {
         user.setPassword(createRequest.getPassword());
         user.setDepartement(departement);
         user.getUserRoles().add(role);
-        user.getFormations().add(formation);
+        if (createRequest.getIdFormation() != null){
+            var formation = formationRepository.findById(
+                            createRequest.getIdFormation())
+                    .orElseThrow(() -> new RuntimeException("Formation not found"));
+            user.getFormations().add(formation);
+        }
 
         return userRepository.save(user);
     }
