@@ -29,7 +29,14 @@ spring:
         timeout: 3000
         writetimeout: 5000
 
+application:
   security:
+    jwt:
+      secret-key: 42ca5209de35483a96b4302b4ab37802
+      expiration: 8640000
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
     user:
       name: kemh
       password: my-login-password
