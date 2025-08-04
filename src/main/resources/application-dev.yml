@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/human_os_data
+    username: username
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database: postgresql
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: localhost
+    port: 1025
+    username: kemh
+    password: my-login-password
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+          starttls:
+            enable: true
+          auth: true
+        connectiontimeout: 5000
+        timeout: 5000
+        writetimeout: 5000
+
+application:
+  security:
+    jwt:
+      secret-key: 42ca5209de35483a96b4302b4ab37802
+      expiration: 86400000
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account

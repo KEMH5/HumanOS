@@ -1,13 +1,29 @@
 services:
-  humanos_db:
-    image: postgres:latest
+  postgres:
+    container_name: postgres-sql-bsn
+    image: postgres
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=AnotherBanger
-      - PGDATA=/data/postgres
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: human_os_data
     volumes:
-      - db:/data/postgres
+      - postgres:/data/postgres
     ports:
-      - "5432:5432"
+      - 5432:5432
+    networks:
+      - spring-demo
+    restart: unless-stopped
+  mail-dev:
+    container_name: mail-dev-bsn
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+      - 1025:1025
+networks:
+  spring-demo:
+    driver: bridge
+
 volumes:
-  db:
+  postgres:
+    driver: local
