@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/v1/rolesUtilisateur")
 public class RoleUtilisateurController {
     private final RoleUtilisateurService roleUtilisateurService;
 
@@ -15,7 +16,7 @@ public class RoleUtilisateurController {
         this.roleUtilisateurService = roleUtilisateurService;
     }
 
-    @PostMapping("/rolesUtilisateur")
+    @PostMapping
     public RoleUtilisateur createRoleUtilisateur(
             @RequestBody
             RoleUtilisateurCreateRequest roleUtilisateur
@@ -23,12 +24,12 @@ public class RoleUtilisateurController {
         return roleUtilisateurService.createRoleUtilisateur(roleUtilisateur);
     }
 
-    @GetMapping("/rolesUtilisateur")
+    @GetMapping
     public List<RoleUtilisateur> getAllRoleUtilisateur(){
         return roleUtilisateurService.getAllRoleUtilisateurs();
     }
 
-    @GetMapping("/rolesUtilisateur/{role-id}")
+    @GetMapping("/{role-id}")
     public RoleUtilisateur getRoleUtilisateurById(
             @PathVariable("role-id")
             Long roleId
@@ -36,7 +37,7 @@ public class RoleUtilisateurController {
         return roleUtilisateurService.getRoleUtilisateur(roleId);
     }
 
-    @DeleteMapping("/rolesUtilisateur/{role-id}")
+    @DeleteMapping("/{role-id}")
     public void deleteRoleUtilisateurById(
             @PathVariable("role-id")
             Long roleId

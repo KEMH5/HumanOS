@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("auth")
 @RestController
 public class TypeContratController {
     private final TypeContratService typeContratService;
@@ -18,7 +19,7 @@ public class TypeContratController {
     @PostMapping("/typeContrats")
     public TypeContrat createTypeContrat(
             @RequestBody
-            TypeContrat typeContrat
+            TypeContratCreateRequest typeContrat
     ){
         return typeContratService.save(typeContrat);
     }

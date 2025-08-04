@@ -14,8 +14,11 @@ public class TypeContratServiceImpl implements TypeContratService {
 
     @Override
     public TypeContrat save(
-            TypeContrat typeContrat
+            TypeContratCreateRequest createRequest
     ) {
+        var typeContrat = new TypeContrat();
+        typeContrat.setDescription(createRequest.getDescription());
+        typeContrat.setName(createRequest.getTitle());
         return typeContratRepository.save(typeContrat);
     }
 

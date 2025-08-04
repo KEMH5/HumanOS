@@ -1,6 +1,5 @@
 package com.nerdtic.humanos.auth;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -9,20 +8,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
 @Builder
-public class RegistrationRequest {
-
-    @NotEmpty(message = "Firstname is mandatory")
-    @NotBlank(message = "Firstname is mandatory")
-    private String firstName;
-
-    @NotEmpty(message = "Lastname is mandatory")
-    @NotBlank(message = "Lastname is mandatory")
-    private String lastName;
+public class AuthenticationRequest {
 
     @Email(message = "Email is not formatted")
     @NotEmpty(message = "Email is mandatory")
@@ -34,7 +23,4 @@ public class RegistrationRequest {
     @Size(min = 8, message = "Password should be 8 characters log minimum")
     private String password;
 
-    private Long RoleId;
-    private Long DepartementId;
-    private Long FormationId;
 }

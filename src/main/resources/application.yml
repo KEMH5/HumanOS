@@ -7,7 +7,6 @@ spring:
 springdoc:
   default-produces-media-type: application/json
 
-server:
-  servlet:
-    context-path: /api/v1/
-
+logging:
+  level:
+    org.springframework.security: DEBUG

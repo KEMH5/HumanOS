@@ -21,14 +21,11 @@ public class RoleUtilisateurServiceImpl implements RoleUtilisateurService {
     public RoleUtilisateur createRoleUtilisateur(
             RoleUtilisateurCreateRequest createRequest
     ) {
-        var user = userRepository.findById(
-                createRequest.getIdUser()
-        ).orElseThrow(() -> new RuntimeException("User inttrouvable"));
+
 
         var roleUser = new RoleUtilisateur();
         roleUser.setTitle(createRequest.getTitle());
         roleUser.setDescription(createRequest.getDescription());
-        roleUser.getUsers().add(user);
 
         return roleUtilisateurRepository.save(roleUser);
 

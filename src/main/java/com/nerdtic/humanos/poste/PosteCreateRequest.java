@@ -9,5 +9,4 @@ public class PosteCreateRequest {
 
     private String description;
 
-    private Long idContrat;
 }

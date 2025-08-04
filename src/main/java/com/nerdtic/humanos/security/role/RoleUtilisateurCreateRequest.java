@@ -8,5 +8,4 @@ public class RoleUtilisateurCreateRequest {
 
     private String description;
 
-    private Long idUser;
 }
