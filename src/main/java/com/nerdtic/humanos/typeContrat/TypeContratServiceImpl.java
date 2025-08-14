@@ -18,7 +18,7 @@ public class TypeContratServiceImpl implements TypeContratService {
     ) {
         var typeContrat = new TypeContrat();
         typeContrat.setDescription(createRequest.getDescription());
-        typeContrat.setName(createRequest.getTitle());
+        typeContrat.setName(createRequest.getName());
         return typeContratRepository.save(typeContrat);
     }
 

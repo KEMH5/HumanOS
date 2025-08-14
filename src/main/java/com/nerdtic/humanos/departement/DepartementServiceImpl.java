@@ -5,7 +5,6 @@ import com.nerdtic.humanos.formation.FormationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class DepartementServiceImpl implements DepartementService {
@@ -25,11 +24,8 @@ public class DepartementServiceImpl implements DepartementService {
     }
 
     @Override
-    public List<DepartementReadRequest> getAllDepartements(){
-        return departementRepository.findAll()
-                .stream()
-                .map(departement -> new DepartementReadRequest(departement.getNomDepartement())).
-                collect(Collectors.toList());
+    public List<Departement> getAllDepartements(){
+        return departementRepository.findAll();
     }
 
     @Override

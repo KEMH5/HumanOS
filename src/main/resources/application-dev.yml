@@ -6,9 +6,9 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     database: postgresql
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
@@ -29,10 +29,11 @@ spring:
         timeout: 5000
         writetimeout: 5000
 
+
 application:
   security:
     jwt:
-      secret-key: 42ca5209de35483a96b4302b4ab37802
+      secret-key: lMRYdwODZGk7Ew3jOW74uh4sXmlF60/OfVVhb6oDlCg=
       expiration: 86400000
   mailing:
     frontend:

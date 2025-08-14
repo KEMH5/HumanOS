@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("auth")
+@RequestMapping("/api/v1/typeContrats")
 @RestController
 public class TypeContratController {
     private final TypeContratService typeContratService;
@@ -16,7 +16,7 @@ public class TypeContratController {
         this.typeContratService = typeContratService;
     }
 
-    @PostMapping("/typeContrats")
+    @PostMapping
     public TypeContrat createTypeContrat(
             @RequestBody
             TypeContratCreateRequest typeContrat
@@ -24,12 +24,12 @@ public class TypeContratController {
         return typeContratService.save(typeContrat);
     }
 
-    @GetMapping("/typeContrats")
+    @GetMapping
     public List<TypeContrat> getAllTypeContrats() {
         return typeContratService.getAllTypeContrats();
     }
 
-    @GetMapping("/typeContrats/{typecontrat-id}")
+    @GetMapping("/{typecontrat-id}")
     public TypeContrat getTypeContratById(
             @PathVariable("typecontrat-id")
             Long typecontratId
@@ -37,7 +37,7 @@ public class TypeContratController {
         return typeContratService.getTypeContratById(typecontratId);
     }
 
-    @GetMapping("/typeContrats/{typeContrat-name}")
+    @GetMapping("/{typeContrat-name}")
     public List<TypeContrat> getTypeContratByName(
             @PathVariable("typeContrat-name")
             String name
@@ -45,7 +45,7 @@ public class TypeContratController {
         return typeContratService.getAllTypeContratByName(name);
     }
 
-    @DeleteMapping("/typeContrats/{typeContrat-id}")
+    @DeleteMapping("/{typeContrat-id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteTypeContratById(
             @PathVariable("typeContrat-id")

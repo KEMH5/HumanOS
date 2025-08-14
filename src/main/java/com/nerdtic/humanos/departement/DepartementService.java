@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface DepartementService {
 
-    List<DepartementReadRequest> getAllDepartements();
+    List<Departement> getAllDepartements();
 
     Departement createDepartement(DepartementCreateRequest createRequest);
 

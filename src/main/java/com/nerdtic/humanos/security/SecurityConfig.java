@@ -13,8 +13,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -43,19 +41,21 @@ public class SecurityConfig {
                 .httpBasic(config -> config.disable() )
                 .authorizeHttpRequests(reqr ->
                         reqr.requestMatchers(
-                                "/auth/authenticate",
-                                "/auth/**",//First Line to permit request like login...
+                                "/api/v1/auth/**",
                                 "/api/v1/rolesUtilisateur/**",
                                 "/api/v1/departements",
+                                "/api/v1/postes",
+                                "/api/v1/typeContrats",
                                 "/error",
                                 "/v2/api-docs",
                                 "/v3/api-docs",
                                 "/v3/api-docs/**",
-                                "/swagger-ressources",
-                                "/swagger-ressources/**",
+                                "/swagger-resources",
+                                "/swagger-resources/**",
                                 "/configuration/ui",
                                 "/configuration/security",
                                 "/swagger-ui/**",
+                                "/v3/api-docs.yaml",
                                 "/webjars/**",
                                 "/swagger-ui.html"
 
@@ -86,4 +86,6 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
+
+
 }

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/v1/postes")
 public class PosteController {
     private PosteService posteService;
 
@@ -13,7 +14,7 @@ public class PosteController {
         this.posteService = posteService;
     }
 
-    @PostMapping("/postes")
+    @PostMapping
     public Poste addPoste(
             @RequestBody
             PosteCreateRequest poste
@@ -21,12 +22,12 @@ public class PosteController {
         return posteService.createPoste(poste);
     }
 
-    @GetMapping("/postes")
+    @GetMapping
     public List<Poste> getAllPostes() {
         return posteService.getAllPostes();
     }
 
-    @GetMapping("/postes/{poste-id}")
+    @GetMapping("/{poste-id}")
     public Poste getPoste(
             @PathVariable("poste-id")
             Long posteId
@@ -34,7 +35,7 @@ public class PosteController {
         return posteService.getPoste(posteId);
     }
 
-    @DeleteMapping("/postes/{poste-id}")
+    @DeleteMapping("/{poste-id}")
     @ResponseStatus(HttpStatus.OK)
     public void deletePoste(
             @PathVariable("poste-id")

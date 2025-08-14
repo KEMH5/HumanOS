@@ -15,7 +15,7 @@ public class DepartementController {
     private final DepartementService departementService;
 
     @GetMapping
-    public ResponseEntity<List<DepartementReadRequest>> getAllDepartements(){
+    public ResponseEntity<List<Departement>> getAllDepartements(){
         return new ResponseEntity<>(departementService.getAllDepartements(), HttpStatus.OK);
     }
 
