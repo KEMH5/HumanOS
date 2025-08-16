@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
+@RequestMapping("/api/v1/contrats")
 public class ContratController {
     private final ContratService contratService;
 
@@ -12,7 +13,7 @@ public class ContratController {
         this.contratService = contratService;
     }
 
-    @PostMapping("/contrats")
+    @PostMapping
     public Contrat createContrat(
             @RequestBody
             ContratCreateRequest contrat
@@ -20,12 +21,12 @@ public class ContratController {
         return this.contratService.saveContrat(contrat);
     }
 
-    @GetMapping("/contrats")
+    @GetMapping
     public List<Contrat> getAllContrats() {
         return contratService.getAllContrats();
     }
 
-    @GetMapping("/contrats/{contrat-id}")
+    @GetMapping("/{contrat-id}")
     public Contrat getContratById(
             @PathVariable("contrat-id")
             Long contratId
@@ -33,7 +34,7 @@ public class ContratController {
         return contratService.getContrat(contratId);
     }
 
-    @DeleteMapping("/contrats/{contrat-id}")
+    @DeleteMapping("/{contrat-id}")
     @ResponseStatus(HttpStatus.OK)
     public void delete(
             @PathVariable("contrat-id")

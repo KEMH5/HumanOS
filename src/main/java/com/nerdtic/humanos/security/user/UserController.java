@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/v1/users")
 public class UserController {
     private final UserService userService;
 
@@ -13,7 +14,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public User createUser(
             @RequestBody
             UserCreateRequest user
@@ -21,12 +22,12 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    @GetMapping("/users")
+    @GetMapping
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/users/{user-id}")
+    @GetMapping("/{user-id}")
     public User getUserById(
             @PathVariable("user-id")
             Long userId
@@ -34,7 +35,7 @@ public class UserController {
         return userService.getUser(userId);
     }
 
-    @GetMapping("/users/{user-name}")
+    @GetMapping("/{user-name}")
     public List<User> getUserByName(
             @PathVariable("user-name")
             String userName
